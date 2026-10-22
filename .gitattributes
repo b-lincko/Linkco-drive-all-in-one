@@ -1,1 +1,4 @@
 * text=auto
+
+# Docker entrypoint hooks must keep Unix line endings on Windows.
+linkco-local/*.sh text eol=lf

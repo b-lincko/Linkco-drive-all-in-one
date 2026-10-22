@@ -77,3 +77,9 @@ Before deploying or submitting, a human must test on a live Nextcloud instance:
 
 PHP linting and live Nextcloud integration require a PHP/Nextcloud environment;
 passing the JavaScript tests alone is not deployment verification.
+
+### No domain? Localhost and LAN IP
+
+Use the separate [Linkco local deployment](../linkco-local/README.md), not the
+upstream AIO Compose file. It includes automatic installation, Linkco login
+theming, persistent storage and explicit trusted hosts for local HTTP access.

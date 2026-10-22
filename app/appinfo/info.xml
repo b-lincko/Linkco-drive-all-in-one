@@ -2,10 +2,10 @@
 <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
 	  xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
 	<id>nextcloud-aio</id>
-	<name>Nextcloud All-in-One</name>
+	<name>Linkco Drive</name>
 	<summary>Linkco Drive workspace and AIO administration.</summary>
 	<description>A Linkco-branded file dashboard with Nextcloud storage, plus access to the Nextcloud All-in-One admin interface.</description>
-	<version>0.10.0</version>
+	<version>0.11.0</version>
 	<licence>agpl</licence>
 	<author>Azul</author>
 	<namespace>AllInOne</namespace>

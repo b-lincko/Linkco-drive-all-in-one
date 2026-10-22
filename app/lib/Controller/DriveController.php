@@ -16,6 +16,13 @@ use OCP\AppFramework\Http\TemplateResponse;
 class DriveController extends Controller {
 	#[NoAdminRequired]
 	#[NoCSRFRequired]
+	#[FrontpageRoute(verb: 'GET', url: '/')]
+	public function home(): TemplateResponse {
+		return $this->index();
+	}
+
+	#[NoAdminRequired]
+	#[NoCSRFRequired]
 	#[FrontpageRoute(verb: 'GET', url: '/drive')]
 	public function index(): TemplateResponse {
 		return new TemplateResponse('nextcloud-aio', 'drive');
