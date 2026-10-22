@@ -130,3 +130,29 @@ build and runtime login/upload test have not been executed here. On your host:
    downloads, favorites and persistence after restarting containers.
 5. Verify an unconfigured Host header is rejected as an untrusted domain.
 6. Confirm cron runs and administration shows no background-job errors.
+
+## Recover the initial configuration error (older local setup)
+
+The original local Compose file bind-mounted a file into the config directory
+before installation. The official entrypoint then saw a nonempty directory and
+skipped copying stock configuration, including `CAN_INSTALL`. This can produce
+“Configuration was not read or initialized correctly, not overwriting …config.php”.
+The fixed Compose file does not mount individual files there. Keep your existing
+`.env.linkco` (same credentials) when updating the source. Do not delete volumes.
+
+From the updated source folder, using the original `.env.linkco`:
+
+```sh
+docker compose --env-file .env.linkco -f compose.linkco.yaml stop drive cron
+docker compose --env-file .env.linkco -f compose.linkco.yaml build drive
+docker compose --env-file .env.linkco -f compose.linkco.yaml up -d database redis
+docker compose --env-file .env.linkco -f compose.linkco.yaml run --rm --no-deps --entrypoint sh drive /opt/linkco-repair.sh
+docker compose --env-file .env.linkco -f compose.linkco.yaml up -d --force-recreate
+```
+
+The recovery script first **refuses to proceed** if the configuration indicates
+an installed version or if the database contains any tables. It restores missing
+stock configuration only for an uninstalled instance with an empty database, then
+runs the installer and branding hook explicitly. If it refuses or fails, do not
+reset the database: collect `logs --tail=100 drive` for diagnosis (redact secrets
+before sharing). It has not been runtime-tested in the development sandbox.

@@ -48,7 +48,6 @@ services:
       PHP_MEMORY_LIMIT: 512M
     volumes:
       - linkco_html:/var/www/html
-      - ./linkco-local/config.php:/var/www/html/config/linkco.config.php:ro
   cron:
     image: linkco-local-drive
     restart: unless-stopped
@@ -60,7 +59,6 @@ services:
       LINKCO_TRUSTED_HOSTS: ${LINKCO_TRUSTED_HOSTS:-localhost 127.0.0.1}
     volumes:
       - linkco_html:/var/www/html
-      - ./linkco-local/config.php:/var/www/html/config/linkco.config.php:ro
 volumes:
   linkco_database:
   linkco_redis:

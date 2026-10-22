@@ -9,3 +9,5 @@ COPY linkco-local/config.php /usr/src/nextcloud/config/linkco.config.php
 COPY linkco-local/brand.svg /opt/linkco-brand.svg
 COPY --chmod=755 linkco-local/setup.sh /docker-entrypoint-hooks.d/post-installation/linkco.sh
 COPY --chmod=755 linkco-local/setup.sh /docker-entrypoint-hooks.d/post-upgrade/linkco.sh
+COPY linkco-local/repair.php /opt/linkco-repair.php
+COPY --chmod=755 linkco-local/repair.sh /opt/linkco-repair.sh
