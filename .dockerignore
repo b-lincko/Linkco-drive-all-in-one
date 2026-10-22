@@ -2,3 +2,5 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Never send generated local credentials to the Docker builder.
 .env.linkco
+.env.linkco.backup
+.env.linkco.tmp

@@ -8,6 +8,49 @@ PostgreSQL, Redis, and the custom Linkco dashboard. It does not run the AIO
 mastercontainer or provide AIO's managed backups, Office, Talk, or update tooling.
 The existing `compose.yaml` is unchanged.
 
+## Windows one-command launcher (recommended)
+
+Install **Python 3.10+** and **Docker Desktop** (Linux containers). Keep the full
+extracted repository together. In Command Prompt inside its root folder run:
+
+```bat
+py run-docker.py --ip 192.168.100.100
+```
+
+Replace the IP if your server uses another address. No Node.js or pip packages
+are required for this launcher. It checks/starts Docker Desktop, generates or
+recovers `.env.linkco`, builds/starts the stack, waits up to ten minutes for
+installation, reapplies Linkco branding, and opens **http://127.0.0.1:8090**.
+It works relative to the script location even when launched from another folder.
+The image build itself may take longer than ten minutes; the readiness timer
+starts after the build finishes. Firewall rules are not changed automatically.
+
+If `.env.linkco` is empty, settings can be recovered from an existing Linkco drive
+container, including a stopped one. These are the original installation seeds,
+not a guarantee of the account's current password. If existing Linkco volumes are
+found without recoverable settings, the launcher stops rather than replacing
+passwords or deleting data. Keep the old containers until recovery succeeds.
+
+To choose a new administrator password explicitly after successful startup:
+
+```bat
+py run-docker.py --ip 192.168.100.100 --reset-password
+```
+
+You will be prompted twice; the password is not printed, placed in command-line
+arguments, or changed in the environment file (which holds initial install seeds).
+For the earlier **uninstalled, empty-database** failure only:
+
+```bat
+py run-docker.py --ip 192.168.100.100 --repair
+```
+
+Repair refuses an installed configuration or a database containing tables. If it
+refuses, preserve the data and inspect logs; do not delete volumes. Other flags:
+`--no-browser`, `--timeout 900`. Use `py run-docker.py --help` for usage.
+The launcher was unit-tested with mocked Docker; Windows/Docker runtime testing
+is still required. HTTP access is suitable only for trusted local networks.
+
 ## Requirements
 
 - Docker Engine / Docker Desktop with Compose v2.

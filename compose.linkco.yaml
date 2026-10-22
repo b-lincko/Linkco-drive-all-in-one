@@ -8,7 +8,7 @@ services:
     environment:
       POSTGRES_DB: linkco
       POSTGRES_USER: linkco
-      POSTGRES_PASSWORD: ${LINKCO_DB_PASSWORD:?Run node linkco-local/configure.cjs first}
+      POSTGRES_PASSWORD: ${LINKCO_DB_PASSWORD:?Run python run-docker.py first}
     volumes:
       - linkco_database:/var/lib/postgresql/data
     healthcheck:
@@ -38,10 +38,10 @@ services:
       POSTGRES_HOST: database
       POSTGRES_DB: linkco
       POSTGRES_USER: linkco
-      POSTGRES_PASSWORD: ${LINKCO_DB_PASSWORD:?Run node linkco-local/configure.cjs first}
+      POSTGRES_PASSWORD: ${LINKCO_DB_PASSWORD:?Run python run-docker.py first}
       REDIS_HOST: redis
       NEXTCLOUD_ADMIN_USER: ${LINKCO_ADMIN_USER:-admin}
-      NEXTCLOUD_ADMIN_PASSWORD: ${LINKCO_ADMIN_PASSWORD:?Run node linkco-local/configure.cjs first}
+      NEXTCLOUD_ADMIN_PASSWORD: ${LINKCO_ADMIN_PASSWORD:?Run python run-docker.py first}
       NEXTCLOUD_TRUSTED_DOMAINS: ${LINKCO_TRUSTED_HOSTS:-localhost 127.0.0.1}
       LINKCO_TRUSTED_HOSTS: ${LINKCO_TRUSTED_HOSTS:-localhost 127.0.0.1}
       PHP_UPLOAD_LIMIT: 1G

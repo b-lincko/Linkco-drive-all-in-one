@@ -16,3 +16,5 @@
 
 # Local Linkco credentials
 .env.linkco
+.env.linkco.backup
+.env.linkco.tmp
