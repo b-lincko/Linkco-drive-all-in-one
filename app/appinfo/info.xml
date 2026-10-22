@@ -3,9 +3,9 @@
 	  xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
 	<id>nextcloud-aio</id>
 	<name>Nextcloud All-in-One</name>
-	<summary>Provides a login link for admins.</summary>
-	<description>Add a link to the admin settings that gives access to the Nextcloud All-in-One admin interface</description>
-	<version>0.9.0</version>
+	<summary>Linkco Drive workspace and AIO administration.</summary>
+	<description>A Linkco-branded file dashboard with Nextcloud storage, plus access to the Nextcloud All-in-One admin interface.</description>
+	<version>0.10.0</version>
 	<licence>agpl</licence>
 	<author>Azul</author>
 	<namespace>AllInOne</namespace>

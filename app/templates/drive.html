@@ -1,0 +1,28 @@
+<!-- SPDX-FileCopyrightText: 2026 Linkco contributors -->
+<!-- SPDX-License-Identifier: AGPL-3.0-or-later -->
+<div id="linkco-drive">
+ <aside class="ld-sidebar">
+  <a class="ld-brand" href="#" aria-label="Linkco Drive home"><span class="ld-logo">l<span>↗</span></span>linkco<span class="ld-brand-dot">.</span></a>
+  <div class="ld-workspace"><span class="ld-workspace-icon">L</span><div><strong>Linkco workspace</strong><small>Your team. Connected.</small></div><span>⌄</span></div>
+  <p class="ld-nav-label">WORKSPACE</p>
+  <nav aria-label="Drive navigation">
+   <button data-view="all" class="active"><span>▦</span>All files</button>
+   <button data-view="recent"><span>◷</span>Recent</button>
+   <button data-view="starred"><span>☆</span>Starred</button>
+  </nav>
+  <div class="ld-sidebar-bottom"><div class="ld-private"><span>♧</span><strong>A little space. A lot of possibility.</strong><p>Your work, together in one secure place.</p></div><div class="ld-storage"><div><span>Storage</span><span id="ld-storage-label">Checking…</span></div><div class="ld-meter"><i id="ld-storage-meter"></i></div><small>Powered by Nextcloud</small></div><a id="ld-settings" href="#">⚙ <span>Workspace settings</span> ↗</a></div>
+ </aside>
+ <div class="ld-main">
+  <header class="ld-topbar"><div class="ld-product">Drive <span>/</span> <strong>Your workspace</strong></div><span class="ld-top-right"><span class="ld-secure">◉ &nbsp; Private by design</span><span class="ld-avatar" id="ld-avatar">L</span></span></header>
+  <main class="ld-content">
+   <div id="ld-demo" hidden>Design preview · Sample files only. Connect through Nextcloud to access your real workspace.</div>
+   <section class="ld-page-heading"><div><div class="ld-eyebrow">A HOME FOR YOUR BEST WORK</div><h1>Your files. All together<span>.</span></h1><p>A little more organized. A lot more connected.</p></div><button class="ld-primary" id="ld-upload"><span>↑</span> Upload files</button><input id="ld-file-input" type="file" multiple hidden></section>
+   <section class="ld-welcome"><div class="ld-welcome-copy"><span class="ld-pill">THE LINKCO WAY</span><h2>Big ideas start<br>with a shared space.</h2><p>From the first draft to the final delivery.<br>Keep everything moving, together.</p><button id="ld-create-hero">Create a folder <span>↗</span></button></div><div class="ld-art" aria-hidden="true"><div class="ld-orbit"></div><div class="ld-art-card ld-art-back"><span>✳</span></div><div class="ld-art-card ld-art-front"><div class="ld-mini-logo">l↗</div><span>Ideas worth<br>connecting.</span><i>LINKCO WORKSPACE &nbsp; ↗</i></div><span class="ld-spark">✳</span><span class="ld-art-tag">Made for working together.</span></div></section>
+   <section class="ld-folders-section"><div class="ld-section-heading"><h2>Quick access</h2><span>Your folders, one click away</span></div><div class="ld-folder-grid" id="ld-folders"></div></section>
+   <section class="ld-files-section"><div class="ld-files-heading"><div class="ld-tabs"><button class="active" data-view="all">All files</button><button data-view="recent">Recent</button><button data-view="starred">Starred</button></div><div class="ld-tools"><label class="ld-search"><span>⌕</span><input id="ld-search" placeholder="Search files…" aria-label="Search files"></label><button id="ld-new-folder" class="ld-outline">+ <span>New folder</span></button></div></div><div class="ld-breadcrumb" id="ld-breadcrumb"></div><div class="ld-table-wrap"><table><thead><tr><th><button id="ld-sort">Name <span>↓</span></button></th><th>Last modified</th><th>File size</th><th aria-label="Actions"></th></tr></thead><tbody id="ld-files"></tbody></table></div><div class="ld-table-footer"><span id="ld-count">Loading your workspace…</span><span>Securely stored. Always yours. <span>♧</span></span></div></section>
+   <footer class="ld-footer"><span><strong>linkco.</strong> &nbsp; A place for everything you’re building.</span><span>Built for connection. Designed for you.</span></footer>
+  </main>
+ </div>
+ <div id="ld-toast" role="status" hidden></div>
+ <dialog id="ld-folder-dialog"><form id="ld-folder-form"><h2>A fresh space for your ideas.</h2><p>Create a folder in your current location.</p><label>Folder name<input id="ld-folder-name" required maxlength="200" autocomplete="off"></label><div><button type="button" id="ld-cancel-folder" class="ld-outline">Cancel</button><button class="ld-primary" type="submit">Create folder</button></div></form></dialog>
+</div>
